@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Ice Cream Flavor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f8ff;
+    }
+    h1 {
+      color: #333;
+    }
+    #flavor {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #ff69b4;
+      transition: transform 0.3s ease;
+    }
+    #icecream-img {
+      width: 150px;
+      height: 150px;
+      margin: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff85c1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Random Ice Cream Flavor Generator</h1>
+  <img id="icecream-img" src="https://cdn-icons-png.flaticon.com/512/685/685352.png" alt="Ice Cream" />
+  <div id="flavor">Click the button to get a flavor!</div>
+  <button onclick="generateFlavor()">Get Flavor</button>
+
+  <script>
+    const flavors = [
+      "Vanilla",
+      "Chocolate",
+      "Strawberry",
+      "Mint Chocolate Chip",
+      "Cookies and Cream",
+      "Rocky Road",
+      "Butter Pecan",
+      "Pistachio",
+      "Mango",
+      "Coffee",
+      "Salted Caramel",
+      "Matcha",
+      "Birthday Cake",
+      "Cherry Garcia",
+      "Peanut Butter Cup",
+      "Lychee Rose",
+      "Black Sesame",
+      "Durian Delight",
+      "Lavender Honey",
+      "Blue Cheese & Pear",
+      "Ube (Purple Yam)",
+      "Chili Chocolate",
+      "Sweet Corn",
+      "Earl Grey Tea",
+      "Saffron Pistachio"
+    ];
+
+    function generateFlavor() {
+      const randomIndex = Math.floor(Math.random() * flavors.length);
+      const flavor = flavors[randomIndex];
+      const flavorDiv = document.getElementById("flavor");
+      flavorDiv.textContent = flavor;
+      flavorDiv.style.transform = "scale(1.2)";
+      setTimeout(() => {
+        flavorDiv.style.transform = "scale(1)";
+      }, 300);
+    }
+  </script>
+</body>
+</html>
